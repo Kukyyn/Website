@@ -22,7 +22,7 @@ export default function TerritoryMap() {
 
         <div className="bg-stone-900 border border-stone-700 rounded-xl overflow-hidden pixel-border">
           <iframe
-            src="http://mc.kukyyn.cz:25576"
+            src="https://mapa.kukyyn.cz"
             className="w-full"
             style={{ height: 'min(600px, 80vh)' }}
             allow="fullscreen"
@@ -32,7 +32,7 @@ export default function TerritoryMap() {
 
         <div className="mt-6 flex justify-center">
           <a
-            href="http://mc.kukyyn.cz:25576"
+            href="https://mapa.kukyyn.cz"
             target="_blank"
             rel="noopener noreferrer"
             className="mc-button bg-forest-700 hover:bg-forest-600 border-forest-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2"
