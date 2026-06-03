@@ -55,7 +55,7 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => {
-                navigator.clipboard.writeText('mc.kukyyn.cz');
+                navigator.clipboard.writeText('ahoj');
               }}
               className="mc-button bg-forest-600 hover:bg-forest-500 text-white text-xs px-4 py-2 rounded"
             >
