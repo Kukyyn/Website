@@ -3,9 +3,7 @@ import { Menu, X, Sword, Map, Coins, Users } from 'lucide-react';
 
 const links = [
   { label: 'Mapa', href: '#mapa', icon: Map },
-  { label: 'Války', href: '#války', icon: Sword },
   { label: 'Ekonomika', href: '#ekonomika', icon: Coins },
-  { label: 'Frakce', href: '#frakce', icon: Users },
 ];
 
 export default function Navbar() {

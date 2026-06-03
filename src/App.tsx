@@ -1,9 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TerritoryMap from './components/TerritoryMap';
-import Wars from './components/Wars';
 import Economy from './components/Economy';
-import Factions from './components/Factions';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -13,9 +11,7 @@ export default function App() {
       <main>
         <Hero />
         <TerritoryMap />
-        <Wars />
         <Economy />
-        <Factions />
       </main>
       <Footer />
     </div>

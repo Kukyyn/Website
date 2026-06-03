@@ -1,4 +1,4 @@
-import { Map, Sword, Coins, Users } from 'lucide-react';
+import { Map, Coins } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -26,9 +26,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Mapa světa', href: '#mapa', icon: Map },
-                { label: 'Války', href: '#války', icon: Sword },
                 { label: 'Ekonomika', href: '#ekonomika', icon: Coins },
-                { label: 'Frakce', href: '#frakce', icon: Users },
               ].map(({ label, href, icon: Icon }) => (
                 <li key={href}>
                   <a href={href} className="flex items-center gap-2 text-stone-500 hover:text-stone-300 text-xs transition-colors">
