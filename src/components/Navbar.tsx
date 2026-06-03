@@ -48,11 +48,29 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-stone-900 border border-stone-700 rounded px-3 py-1.5">
-              <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
-              <span className="text-xs text-stone-300 font-medium font-mono">mc.kukyyn.cz</span>
-            </div>
+          const [onlinePlayers, setOnlinePlayers] = useState("Loading...");
+
+useEffect(() => {
+  fetch("https://api.mcsrvstat.us/3/mc.kukyyn.cz")
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.online) {
+        setOnlinePlayers(`👥 ${data.players.online}/${data.players.max} Online`);
+      } else {
+        setOnlinePlayers("🔴 Offline");
+      }
+    })
+    .catch(() => setOnlinePlayers("🔴 Offline"));
+}, []);
+
+<div className="hidden md:flex items-center gap-3">
+  <div className="flex items-center gap-2 bg-stone-900 border border-stone-700 rounded px-3 py-1.5">
+    <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
+    <span className="text-xs text-stone-300 font-medium font-mono">
+      {onlinePlayers}
+    </span>
+  </div>
+</div>
            <button
   onClick={() => {
     window.open('https://discord.gg/9jrRVqmqt5', '_blank');
