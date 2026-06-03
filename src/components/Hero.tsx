@@ -30,11 +30,6 @@ export default function Hero() {
       <div className="absolute bottom-60 right-[8%] w-14 h-14 bg-war-800 rounded-sm opacity-25 animate-float hidden lg:block" style={{ animationDelay: '1s' }} />
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-stone-900/80 border border-stone-700 rounded-full px-4 py-1.5 mb-8 text-xs text-stone-400 font-medium backdrop-blur-sm">
-          <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
-          Server je online — mc.kukyyn.cz
-        </div>
-
         <h1 className="font-minecraft text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-100 leading-tight mb-4 text-shadow-lg">
           <span className="text-forest-400">Kukyyn</span>
           <span className="text-stone-100">SMP</span>
