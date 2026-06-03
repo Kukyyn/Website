@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
               <div className="bg-stone-900 border border-stone-800 rounded-lg p-3">
                 <div className="text-stone-500 text-xs mb-1">Verze</div>
-                <div className="font-mono text-stone-200 text-sm font-semibold">1.21.x</div>
+                <div className="font-mono text-stone-200 text-sm font-semibold">1.21.11</div>
               </div>
               <button
                 onClick={() => navigator.clipboard.writeText('mc.kukyyn.cz')}
