@@ -53,14 +53,14 @@ export default function Navbar() {
               <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
               <span className="text-xs text-stone-300 font-medium font-mono">mc.kukyyn.cz</span>
             </div>
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText('ahoj');
-              }}
-              className="mc-button bg-forest-600 hover:bg-forest-500 text-white text-xs px-4 py-2 rounded"
-            >
-              Kopírovat IP
-            </button>
+           <button
+  onClick={() => {
+    window.open('https://discord.gg/9jrRVqmqt5', '_blank');
+  }}
+  className="mc-button bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-4 py-2 rounded"
+>
+  🌍Discord
+</button>
           </div>
 
           <button
