@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sword, Map, Coins, Users } from 'lucide-react';
+import { Menu, X, Map, Coins } from 'lucide-react';
 
 const links = [
   { label: 'Mapa', href: '#mapa', icon: Map },
@@ -9,11 +9,25 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [onlinePlayers, setOnlinePlayers] = useState('Loading...');
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  useEffect(() => {
+    fetch('https://api.mcsrvstat.us/3/mc.kukyyn.cz')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.online) {
+          setOnlinePlayers(`👥 ${data.players.online}/${data.players.max} Online`);
+        } else {
+          setOnlinePlayers('🔴 Offline');
+        }
+      })
+      .catch(() => setOnlinePlayers('🔴 Offline'));
   }, []);
 
   return (
@@ -48,37 +62,20 @@ export default function Navbar() {
             ))}
           </nav>
 
-          const [onlinePlayers, setOnlinePlayers] = useState("Loading...");
+          <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-stone-900 border border-stone-700 rounded px-3 py-1.5">
+              <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
+              <span className="text-xs text-stone-300 font-medium font-mono">
+                {onlinePlayers}
+              </span>
+            </div>
 
-useEffect(() => {
-  fetch("https://api.mcsrvstat.us/3/mc.kukyyn.cz")
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.online) {
-        setOnlinePlayers(`👥 ${data.players.online}/${data.players.max} Online`);
-      } else {
-        setOnlinePlayers("🔴 Offline");
-      }
-    })
-    .catch(() => setOnlinePlayers("🔴 Offline"));
-}, []);
-
-<div className="hidden md:flex items-center gap-3">
-  <div className="flex items-center gap-2 bg-stone-900 border border-stone-700 rounded px-3 py-1.5">
-    <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
-    <span className="text-xs text-stone-300 font-medium font-mono">
-      {onlinePlayers}
-    </span>
-  </div>
-</div>
-           <button
-  onClick={() => {
-    window.open('https://discord.gg/9jrRVqmqt5', '_blank');
-  }}
-  className="mc-button bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-4 py-2 rounded"
->
-  🌍Discord
-</button>
+            <button
+              onClick={() => window.open('https://discord.gg/9jrRVqmqt5', '_blank')}
+              className="mc-button bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-4 py-2 rounded"
+            >
+              🌍 Discord
+            </button>
           </div>
 
           <button
@@ -104,16 +101,23 @@ useEffect(() => {
                 {label}
               </a>
             ))}
+
             <div className="pt-3 border-t border-stone-800">
               <div className="flex items-center gap-2 bg-stone-900 border border-stone-700 rounded px-3 py-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
-                <span className="text-xs text-stone-300 font-mono">mc.kukyyn.cz</span>
+                <span className="text-xs text-stone-300 font-mono">
+                  {onlinePlayers}
+                </span>
               </div>
+
               <button
-                onClick={() => { navigator.clipboard.writeText('mc.kukyyn.cz'); setOpen(false); }}
-                className="w-full mc-button bg-forest-600 text-white text-sm py-2.5 rounded font-medium"
+                onClick={() => {
+                  window.open('https://discord.gg/9jrRVqmqt5', '_blank');
+                  setOpen(false);
+                }}
+                className="w-full mc-button bg-indigo-600 text-white text-sm py-2.5 rounded font-medium"
               >
-                Kopírovat IP adresu
+                🌍 Discord
               </button>
             </div>
           </div>
